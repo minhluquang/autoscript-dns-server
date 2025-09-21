@@ -20,7 +20,9 @@ Mục tiêu của script là giúp người dùng dễ dàng thực hiện các 
 *   **Hệ điều hành**: Máy chủ CentOS (khuyến nghị sử dụng CentOS Stream 9).
 *   **Kết nối mạng**: Cần có kết nối Internet để cài đặt các gói `bind`, `bind-utils`, và `ipcalc`. Cả hai máy chủ Primary và Secondary đều phải kết nối được ra ngoài.
 *   **Quyền truy cập**: Script cần được thực thi với quyền `root`.
-
+*   **Đảm bảo cả 2 máy Primary và Secondary có thể kết nối mạng bên ngoài**
+  
+  ![Demo Primary Menu](images/1.png)
 ## III. Hướng dẫn cài đặt
 
 ### Trên Primary DNS Server
@@ -63,43 +65,70 @@ Mục tiêu của script là giúp người dùng dễ dàng thực hiện các 
 
 Khi chạy `primary.sh`, bạn sẽ thấy một menu chức năng. Hãy thực hiện tuần tự theo các bước sau.
 
+![Demo Primary Menu](images/2.png)
+
 1.  **Chức năng 1: Cài đặt và cấu hình cơ bản**
     *   Chọn chức năng số `1` để cài đặt BIND và các gói cần thiết.
     *   Nhập các thông tin mạng để cấu hình IP tĩnh, ví dụ:
         *   Địa chỉ IP: `192.168.232.10`.
         *   Subnet mask: `255.255.255.0`.
         *   Gateway: `192.168.232.2`.
+     
+    ![Demo Primary Menu](images/3.png)
 
 2.  **Chức năng 2: Tạo Forward Zone**
     *   Chọn chức năng số `2` để tạo một zone phân giải xuôi mới.
     *   Nhập tên miền và địa chỉ IP tương ứng, ví dụ: domain `it.net` với IP `192.168.232.10`.
+  
+    ![Demo Primary Menu](images/4.png)
 
 3.  **Chức năng 3: Thêm DNS Record**
     *   Chọn chức năng số `3` để thêm bản ghi cho zone đã tạo.
     *   Chọn zone bạn muốn thao tác từ danh sách (ví dụ: `it.net`).
-    *   Nhập hostname và địa chỉ IP cho bản ghi mới (ví dụ: hostname `www` với IP `192.168.232.11`). Nếu để trống hostname, bản ghi sẽ được áp dụng cho domain chính.
 
-4.  **Chức năng 4 & 5: Xem thông tin**
+    ![Demo Primary Menu](images/5.png)
+      
+    *   Nhập hostname và địa chỉ IP cho bản ghi mới (ví dụ: hostname `www` với IP `192.168.232.11`). 
+  
+    ![Demo Primary Menu](images/6.png)
+
+5.  **Chức năng 4 & 5: Xem thông tin**
     *   Sử dụng chức năng số `4` để xem danh sách các Forward và Reverse Zone đã tạo.
-    *   Sử dụng chức năng số `5` để xem tất cả các bản ghi của một zone cụ thể.
 
-5.  **Kiểm tra phân giải (Forward & Reverse Lookup)**
+    ![Demo Primary Menu](images/7.png)
+      
+    *   Sử dụng chức năng số `5` để xem tất cả các bản ghi của một zone cụ thể.
+  
+    ![Demo Primary Menu](images/8.png)
+
+7.  **Kiểm tra phân giải (Forward & Reverse Lookup)**
     *   Thoát script và dùng lệnh `nslookup` để kiểm tra.
     *   **Forward Lookup**: `nslookup it.net` sẽ trả về `192.168.232.10` và `nslookup www.it.net` sẽ trả về `192.168.232.11`.
-    *   **Reverse Lookup**: `nslookup 192.168.232.11` sẽ trả về `www.it.net`, xác nhận Reverse Zone đã được cấu hình chính xác.
 
-6.  **Chức năng 6: Cấu hình Secondary DNS**
+    ![Demo Primary Menu](images/9.png)
+   
+    *   **Reverse Lookup**: `nslookup 192.168.232.11` sẽ trả về `www.it.net`, xác nhận Reverse Zone đã được cấu hình chính xác.
+  
+    ![Demo Primary Menu](images/10.png)
+
+8.  **Chức năng 6: Cấu hình Secondary DNS**
     *   Chọn chức năng số `6`.
     *   Nhập thông tin cho máy chủ Secondary, ví dụ:
         *   Tên zone: `it.net`.
         *   Hostname của Secondary: `secondary.it.net`.
         *   Địa chỉ IP của Secondary: `192.168.232.20`.
 
-7.  **Chức năng 7: Kiểm tra trạng thái dịch vụ**
-    *   Chọn chức năng số `7` để đảm bảo dịch vụ `named` đang chạy và các zone đã được tải thành công.
+    ![Demo Primary Menu](images/11.png)
 
-8.  **Hoàn tất cấu hình Primary**
+9.  **Chức năng 7: Kiểm tra trạng thái dịch vụ**
+    *   Chọn chức năng số `7` để đảm bảo dịch vụ `named` đang chạy và các zone đã được tải thành công.
+  
+    ![Demo Primary Menu](images/12.png)  
+
+10.  **Hoàn tất cấu hình Primary**
     *   Sau khi hoàn thành 7 chức năng trên, hãy chuyển Network Adapter của máy Primary sang chế độ **Host-only**.
+
+        ![Demo Primary Menu](images/13.png)  
 
 ### 2. Cấu hình trên Secondary DNS Server
 
