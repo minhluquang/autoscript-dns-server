@@ -1,6 +1,6 @@
-# Quản lý DNS Server bằng Bash Script
+# 🌐✨ Quản lý DNS Server bằng Bash Script ✨🌐
 
-## I. Giới thiệu
+## 📖 I. Giới thiệu
 
 Script này được viết để tự động hóa việc cài đặt, cấu hình và quản lý BIND DNS Server trên hệ điều hành CentOS.
 
@@ -15,7 +15,7 @@ Mục tiêu của script là giúp người dùng dễ dàng thực hiện các 
 
 Đây là một công cụ dạng menu CLI (giao diện dòng lệnh), người dùng chỉ cần chạy script và chọn chức năng mong muốn thông qua các con số.
 
-## II. Chuẩn bị môi trường
+## ⚙️ II. Chuẩn bị môi trường
 
 Để sử dụng script, bạn cần đảm bảo các yêu cầu sau:
 
@@ -26,7 +26,7 @@ Mục tiêu của script là giúp người dùng dễ dàng thực hiện các 
 
 ![Demo Primary Menu](images/1.png)
 
-## III. Hướng dẫn cài đặt
+## 🛠️ III. Hướng dẫn cài đặt
 
 ### Trên Primary DNS Server
 
@@ -62,7 +62,7 @@ Mục tiêu của script là giúp người dùng dễ dàng thực hiện các 
 
 > **Lưu ý**: Bạn nên tạo file và cấp quyền bằng tài khoản người dùng thông thường để dễ dàng dán nội dung script, sau đó chuyển sang `root` để chạy file.
 
-## IV. Hướng dẫn sử dụng
+## 🖥️ IV. Hướng dẫn sử dụng
 
 ### 1. Cấu hình trên Primary DNS Server
 
@@ -196,4 +196,4 @@ Khi chạy `secondary.sh`, bạn thực hiện tuần tự các bước sau.
 
 Kết quả kiểm tra chéo thành công xác nhận rằng cả hai máy chủ DNS đã được cấu hình đúng và đồng bộ với nhau.
 
-Chúc bạn thành công!
+<h3 align="center">🎉 Chúc bạn thành công! 🎉</h3>
