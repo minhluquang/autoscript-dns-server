@@ -196,4 +196,17 @@ Khi chạy `secondary.sh`, bạn thực hiện tuần tự các bước sau.
 
 Kết quả kiểm tra chéo thành công xác nhận rằng cả hai máy chủ DNS đã được cấu hình đúng và đồng bộ với nhau.
 
+## 📋 PHỤ LỤC
+
+### Bảng tóm tắt thông tin cấu hình
+
+| Thông tin      | Primary DNS Server | Secondary DNS Server |
+| -------------- | ------------------ | -------------------- |
+| Địa chỉ IP     | 192.168.232.10     | 192.168.232.20       |
+| Subnet Mask    | 255.255.255.0      | 255.255.255.0        |
+| Gateway        | 192.168.232.2      | 192.168.232.2        |
+| Tên miền chính | it.net             | it.net (đồng bộ)     |
+| Hostname       | primary.it.net     | secondary.it.net     |
+| File script    | primary.sh         | secondary.sh         |
+
 <h3 align="center">🎉 Chúc bạn thành công! 🎉</h3>
